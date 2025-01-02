@@ -27,14 +27,46 @@ func main(){
 
     // Division
     var num1 int = 5
-    var num2 int = 2
+    var num2 int = 0
     var result, remainder int
     var err error
     result, remainder, err = intDivision(num1, num2)
     if err != nil {
         fmt.Println(err.Error())
+    } else if(remainder == 0) {
+        fmt.Printf("Result: %d\n", result)
     } else {
         fmt.Printf("Result: %d, Remainder: %d\n", result, remainder)
+    }
+
+    // switch case
+    var grade string = "B"
+    switch grade {
+    case "A":
+        fmt.Println("Excellent")
+    case "B":
+        fmt.Println("Good")
+    case "C":
+        fmt.Println("Fair")
+    case "D":
+        fmt.Println("Poor")
+    default:
+        fmt.Println("Invalid grade")
+    }
+
+    // switch case with condition
+    var marks int = 90
+    switch {
+    case marks >= 90:
+        fmt.Println("A")
+    case marks >= 80:
+        fmt.Println("B")
+    case marks >= 70:
+        fmt.Println("C")
+    case marks >= 60:
+        fmt.Println("D")
+    default:
+        fmt.Println("F")
     }
 
     // string
@@ -78,7 +110,6 @@ func intDivision(a int, b int) (int, int, error){
     var err error
     if b == 0 {
         err = errors.New("division by zero is not allowed")
-        fmt.Println(err)
         return 0, 0, err
     }
     var result int = a / b
